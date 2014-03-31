@@ -1,0 +1,56 @@
+{# empty Twig template #}
+<html>
+    <head>
+        
+       
+        {% block stylesheets %}
+            <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+            <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+            
+        <title>{% block title %}IngSoft{% endblock %}</title>
+    </head>
+    
+    <body>
+                
+          
+        <section id="wrapper">
+            <header id="header">
+                
+
+                <hgroup>
+                    
+                    
+                    
+                    
+                    <h2>{% block blog_title %}<a href="#">IngSoft</a>{% endblock %}</h2>
+                    <h3>{% block blog_tagline %}<a href="#">Servicios de Ingeniería</a>{% endblock %}</h3>
+                </hgroup>
+            </header>
+
+            <nav class="top_menu">
+                <ul>
+                    <li><a href="pagina_inicio">Inicio</a></li>
+                    <li><a href="pagina_foro">Solicitudes</a></li>
+                    <li><a href="pagina_listado_clientes">Listado de Clientes</a></li>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                    pendiente:
+                    <li><a href="{{ path('IngSoftDatBundle_inicio') }}">Inicio</a></li>
+            <li><a href="{{ path('IngSoftDatBundle_foro') }}">Foro</a></li>
+            <li><a href="{{ path('IngSoftDatBundle_listadosolicitudes') }}">Solicitudeso</a></li>
+            <li><a href="{{ path('IngSoftDatBundle_prestadoresservicio') }}">Prestadores de Servicio</a></li>
+            <li><a href="{{ path('IngSoftDatBundle_proyectos') }}">Proyectos</a></li>
+            <li><a href="{{ path('IngSoftDatBundle_clientes') }}">Clientes</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div id="footer">
+                
+            </div>
+        </section>
+
+    </body>
+</html>

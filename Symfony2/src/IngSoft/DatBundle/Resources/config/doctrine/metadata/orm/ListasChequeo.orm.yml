@@ -1,0 +1,31 @@
+ListasChequeo:
+    type: entity
+    table: listas_chequeo
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+        urlHost:
+            type: text
+            nullable: false
+            column: url_host
+    manyToOne:
+        codigoObjetivo:
+            targetEntity: Objetivos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_objetivo:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

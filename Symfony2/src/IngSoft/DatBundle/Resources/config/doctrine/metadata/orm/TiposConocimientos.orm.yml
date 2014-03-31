@@ -1,0 +1,20 @@
+TiposConocimientos:
+    type: entity
+    table: tipos_conocimientos
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+    lifecycleCallbacks: {  }

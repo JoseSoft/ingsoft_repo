@@ -1,0 +1,35 @@
+NoticiasCompartidas:
+    type: entity
+    table: noticias_compartidas
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        fechaCompartida:
+            type: datetime
+            nullable: false
+            column: fecha_compartida
+    manyToOne:
+        codigoNoticia:
+            targetEntity: Noticias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_noticia:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoUsuario:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_usuario:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

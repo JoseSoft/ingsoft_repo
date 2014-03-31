@@ -1,0 +1,20 @@
+TiposUsuario:
+    type: entity
+    table: tipos_usuario
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+    lifecycleCallbacks: {  }

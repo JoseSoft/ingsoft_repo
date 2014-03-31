@@ -1,0 +1,105 @@
+Proyectos:
+    type: entity
+    table: proyectos
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        fechaComienzo:
+            type: date
+            nullable: false
+            column: fecha_comienzo
+        fechaLimite:
+            type: date
+            nullable: false
+            column: fecha_limite
+        valorPagado:
+            type: decimal
+            nullable: false
+            column: valor_pagado
+        cantidadTrabajadores:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: cantidad_trabajadores
+        calificacionTotal:
+            type: decimal
+            nullable: true
+            column: calificacion_total
+    manyToMany:
+        codigoPrestador:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: codigoProyecto
+            joinTable:
+                name: prestadores_proyecto
+                joinColumns:
+                    -
+                        name: codigo_proyecto
+                        referencedColumnName: codigo
+                inverseJoinColumns:
+                    -
+                        name: codigo_prestador
+                        referencedColumnName: cedula
+            orderBy: null
+    manyToOne:
+        codigoPromocion:
+            targetEntity: Promociones
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_promocion:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoCategoria:
+            targetEntity: Categorias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_categoria:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoEmpresa:
+            targetEntity: Empresas
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_empresa:
+                    referencedColumnName: nit
+            orphanRemoval: false
+        codigoTutor:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_tutor:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+        codigoModerador:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_moderador:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

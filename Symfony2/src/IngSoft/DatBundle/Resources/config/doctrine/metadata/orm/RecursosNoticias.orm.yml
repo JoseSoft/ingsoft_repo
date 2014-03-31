@@ -1,0 +1,32 @@
+RecursosNoticias:
+    type: entity
+    table: recursos_noticias
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombreRecurso:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+            column: nombre_recurso
+        urlHostRecurso:
+            type: text
+            nullable: false
+            column: url_host_recurso
+    manyToOne:
+        codigoNoticia:
+            targetEntity: Noticias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_noticia:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

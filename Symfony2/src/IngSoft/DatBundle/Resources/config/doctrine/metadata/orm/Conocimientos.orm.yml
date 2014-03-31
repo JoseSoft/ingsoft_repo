@@ -1,0 +1,40 @@
+Conocimientos:
+    type: entity
+    table: conocimientos
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombreTitulo:
+            type: string
+            length: 60
+            fixed: false
+            nullable: true
+            column: nombre_titulo
+        fechaObtencion:
+            type: date
+            nullable: false
+            column: fecha_obtencion
+    manyToMany:
+        codigoEtiqueta:
+            targetEntity: Etiquetas
+            cascade: {  }
+            mappedBy: codigoConocimiento
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        codigoTipo:
+            targetEntity: TiposConocimientos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_tipo:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

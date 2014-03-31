@@ -1,0 +1,50 @@
+Actividades:
+    type: entity
+    table: actividades
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        calificacion:
+            type: decimal
+            nullable: false
+    manyToMany:
+        codigoPrestador:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: codigoActividad
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        codigoTutor:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_tutor:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+        codigoObjetivo:
+            targetEntity: Objetivos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_objetivo:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

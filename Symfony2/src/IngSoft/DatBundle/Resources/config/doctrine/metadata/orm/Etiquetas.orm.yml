@@ -1,0 +1,65 @@
+Etiquetas:
+    type: entity
+    table: etiquetas
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombreEtiqueta:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: nombre_etiqueta
+    manyToMany:
+        codigoConocimiento:
+            targetEntity: Conocimientos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: codigoEtiqueta
+            joinTable:
+                name: etiquetas_conocimiento
+                joinColumns:
+                    -
+                        name: codigo_etiqueta
+                        referencedColumnName: codigo
+                inverseJoinColumns:
+                    -
+                        name: codigo_conocimiento
+                        referencedColumnName: codigo
+            orderBy: null
+        codigoNoticia:
+            targetEntity: Noticias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: codigoEtiqueta
+            joinTable:
+                name: etiquetas_noticias
+                joinColumns:
+                    -
+                        name: codigo_etiqueta
+                        referencedColumnName: codigo
+                inverseJoinColumns:
+                    -
+                        name: codigo_noticia
+                        referencedColumnName: codigo
+            orderBy: null
+        codigoPrueba:
+            targetEntity: PruebasTecnicas
+            cascade: {  }
+            mappedBy: codigoEtiqueta
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        codigoSolicitud:
+            targetEntity: Solicitudes
+            cascade: {  }
+            mappedBy: codigoEtiqueta
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

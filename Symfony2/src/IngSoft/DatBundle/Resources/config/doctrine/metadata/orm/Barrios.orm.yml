@@ -1,0 +1,33 @@
+Barrios:
+    type: entity
+    table: barrios
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        numeroLocalidad:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: numero_localidad
+    manyToOne:
+        codigoMunicipio:
+            targetEntity: Municipios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_municipio:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

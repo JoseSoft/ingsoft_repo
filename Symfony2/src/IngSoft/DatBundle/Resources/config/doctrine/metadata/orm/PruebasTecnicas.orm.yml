@@ -1,0 +1,68 @@
+PruebasTecnicas:
+    type: entity
+    table: pruebas_tecnicas
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        calificacionTotal:
+            type: decimal
+            nullable: false
+            column: calificacion_total
+        descripcion:
+            type: text
+            nullable: false
+        urlPdf:
+            type: text
+            nullable: false
+            column: url_pdf
+        numeroPreguntas:
+            type: decimal
+            nullable: false
+            column: numero_preguntas
+        dificultadPrueba:
+            type: decimal
+            nullable: false
+            column: dificultad_prueba
+    manyToMany:
+        codigoEtiqueta:
+            targetEntity: Etiquetas
+            cascade: {  }
+            mappedBy: null
+            inversedBy: codigoPrueba
+            joinTable:
+                name: etiquetas_pruebas
+                joinColumns:
+                    -
+                        name: codigo_prueba
+                        referencedColumnName: codigo
+                inverseJoinColumns:
+                    -
+                        name: codigo_etiqueta
+                        referencedColumnName: codigo
+            orderBy: null
+    manyToOne:
+        codigoAdministrador:
+            targetEntity: Administradores
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_administrador:
+                    referencedColumnName: correo_electronico
+            orphanRemoval: false
+        codigoCategoria:
+            targetEntity: Categorias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_categoria:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,43 @@
+Pagos:
+    type: entity
+    table: pagos
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        valorTotal:
+            type: decimal
+            nullable: true
+            column: valor_total
+        fechaPago:
+            type: date
+            nullable: false
+            column: fecha_pago
+        tipoPago:
+            type: boolean
+            nullable: false
+            column: tipo_pago
+    manyToOne:
+        codigoUsuario:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_usuario:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+        codigoContrato:
+            targetEntity: Contratos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_contrato:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

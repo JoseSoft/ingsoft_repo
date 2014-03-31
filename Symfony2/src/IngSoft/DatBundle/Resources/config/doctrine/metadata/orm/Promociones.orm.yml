@@ -1,0 +1,30 @@
+Promociones:
+    type: entity
+    table: promociones
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        fechaComienzo:
+            type: datetime
+            nullable: false
+            column: fecha_comienzo
+        fechaFin:
+            type: datetime
+            nullable: false
+            column: fecha_fin
+        porcentajeDescuento:
+            type: decimal
+            nullable: false
+            column: porcentaje_descuento
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

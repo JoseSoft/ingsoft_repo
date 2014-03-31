@@ -1,0 +1,47 @@
+Empresas:
+    type: entity
+    table: empresas
+    fields:
+        nit:
+            id: true
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        correo:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        direccion:
+            type: string
+            length: 90
+            fixed: false
+            nullable: false
+        telefono:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+    manyToOne:
+        codigoBarrio:
+            targetEntity: Barrios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_barrio:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoClienteFiel:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_cliente_fiel:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

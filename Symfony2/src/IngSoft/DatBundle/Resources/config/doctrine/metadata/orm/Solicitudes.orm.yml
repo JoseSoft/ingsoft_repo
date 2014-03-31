@@ -1,0 +1,73 @@
+Solicitudes:
+    type: entity
+    table: solicitudes
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        numeroPresSolicitados:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: numero_pres_solicitados
+        fechaPublicacion:
+            type: datetime
+            nullable: false
+            column: fecha_publicacion
+        descripcion:
+            type: text
+            nullable: false
+        fechaLimRespuesta:
+            type: datetime
+            nullable: false
+            column: fecha_lim_respuesta
+    manyToMany:
+        codigoEtiqueta:
+            targetEntity: Etiquetas
+            cascade: {  }
+            mappedBy: null
+            inversedBy: codigoSolicitud
+            joinTable:
+                name: etiquetas_solicitudes
+                joinColumns:
+                    -
+                        name: codigo_solicitud
+                        referencedColumnName: codigo
+                inverseJoinColumns:
+                    -
+                        name: codigo_etiqueta
+                        referencedColumnName: codigo
+            orderBy: null
+    manyToOne:
+        codigoPromocion:
+            targetEntity: Promociones
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_promocion:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoEmpresa:
+            targetEntity: Empresas
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_empresa:
+                    referencedColumnName: nit
+            orphanRemoval: false
+        codigoForo:
+            targetEntity: Foros
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_foro:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

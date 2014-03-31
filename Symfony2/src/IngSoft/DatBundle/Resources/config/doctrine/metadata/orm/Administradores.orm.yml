@@ -1,0 +1,24 @@
+Administradores:
+    type: entity
+    table: administradores
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        correoElectronico:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+            column: correo_electronico
+        contrasenia:
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

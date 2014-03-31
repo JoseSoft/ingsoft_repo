@@ -1,0 +1,41 @@
+Comentarios:
+    type: entity
+    table: comentarios
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        comentario:
+            type: text
+            nullable: false
+        nombreVisitante:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+            column: nombre_visitante
+        correoVisitante:
+            type: string
+            length: 70
+            fixed: false
+            nullable: false
+            column: correo_visitante
+        fechaPublicacion:
+            type: datetime
+            nullable: false
+            column: fecha_publicacion
+    manyToOne:
+        comentarioNoticia:
+            targetEntity: Noticias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                comentario_noticia:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

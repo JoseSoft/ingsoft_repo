@@ -1,0 +1,34 @@
+Municipios:
+    type: entity
+    table: municipios
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 10
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        codigoPostal:
+            type: string
+            length: 8
+            fixed: false
+            nullable: false
+            column: codigo_postal
+    manyToOne:
+        codigoDepartamento:
+            targetEntity: Departamentos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_departamento:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

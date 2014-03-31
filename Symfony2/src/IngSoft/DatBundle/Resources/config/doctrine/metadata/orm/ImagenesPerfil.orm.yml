@@ -1,0 +1,26 @@
+ImagenesPerfil:
+    type: entity
+    table: imagenes_perfil
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        urlHost:
+            type: text
+            nullable: false
+            column: url_host
+    manyToOne:
+        codigoUsuario:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_usuario:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+CertificadosCono:
+    type: entity
+    table: certificados_cono
+    fields:
+        urlHost:
+            type: text
+            nullable: false
+            column: url_host
+    oneToOne:
+        codUsuarioCono:
+            targetEntity: UsuariosConocimientos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_usuario_cono:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

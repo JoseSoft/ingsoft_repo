@@ -1,0 +1,37 @@
+Objetivos:
+    type: entity
+    table: objetivos
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        calificacion:
+            type: decimal
+            nullable: false
+        porcentajeInfluencia:
+            type: decimal
+            nullable: false
+            column: porcentaje_influencia
+    manyToOne:
+        codigoProyecto:
+            targetEntity: Proyectos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_proyecto:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

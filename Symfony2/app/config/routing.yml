@@ -1,0 +1,45 @@
+ing_soft_view:
+    resource: "@IngSoftViewBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ing_soft_dat:
+    resource: "@IngSoftDatBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+# ****** WARNING ******
+# This route should be enabled with caution as it can open a security vulnerability
+# see http://symfony.com/blog/security-release-symfony-2-0-20-and-2-1-5-released for more information
+# ****** WARNING ******
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+pagina_ayuda:
+    pattern: /ayuda
+    defaults: { _controller: IngSoftDatBundle:Default:ayuda }
+
+pagina_inicio:
+    pattern: /inicio
+    defaults: { _controller: IngSoftDatBundle:Default:inicio }
+    
+pagina_foro:
+    pattern: /foro
+    defaults: { _controller: IngSoftDatBundle:Default:foro }
+
+pagina_listado_solicitudes:
+    pattern: /listadosolicitudes
+    defaults: { _controller: IngSoftDatBundle:Default:listadosolicitudes }
+
+pagina_listado_prestadores:
+    pattern: /listadoprestadores
+    defaults: { _controller: IngSoftDatBundle:Default:listadoprestadores }
+    
+pagina_listado_proyectos:
+    pattern: /listadosproyectos
+    defaults: { _controller: IngSoftDatBundle:Default:listadosproyectos }
+    
+pagina_listado_clientes:
+    pattern: /listadoclientes
+    defaults: { _controller: IngSoftDatBundle:Default:listadoclientes }

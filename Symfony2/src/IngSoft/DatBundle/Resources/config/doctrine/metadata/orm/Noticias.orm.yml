@@ -1,0 +1,42 @@
+Noticias:
+    type: entity
+    table: noticias
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        tituto:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+        contenido:
+            type: text
+            nullable: false
+        fechaPublicacion:
+            type: datetime
+            nullable: false
+            column: fecha_publicacion
+    manyToMany:
+        codigoEtiqueta:
+            targetEntity: Etiquetas
+            cascade: {  }
+            mappedBy: codigoNoticia
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        categoriaNoticia:
+            targetEntity: Categorias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                categoria_noticia:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

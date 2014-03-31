@@ -1,0 +1,34 @@
+Categorias:
+    type: entity
+    table: categorias
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        eliminada:
+            type: boolean
+            nullable: false
+    manyToOne:
+        categoriaMayor:
+            targetEntity: Categorias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                categoria_mayor:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

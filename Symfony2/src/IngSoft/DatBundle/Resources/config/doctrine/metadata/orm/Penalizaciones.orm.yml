@@ -1,0 +1,36 @@
+Penalizaciones:
+    type: entity
+    table: penalizaciones
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        motivo:
+            type: string
+            length: 60
+            fixed: false
+            nullable: false
+        fechaInicio:
+            type: datetime
+            nullable: false
+            column: fecha_inicio
+        fechaFin:
+            type: datetime
+            nullable: false
+            column: fecha_fin
+    manyToOne:
+        codigoPrestador:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_prestador:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

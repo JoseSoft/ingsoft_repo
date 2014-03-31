@@ -1,0 +1,31 @@
+CalifacionesUsuario:
+    type: entity
+    table: califaciones_usuario
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        codigoCalificacion:
+            targetEntity: Calificaciones
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_calificacion:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoPrestador:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_prestador:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

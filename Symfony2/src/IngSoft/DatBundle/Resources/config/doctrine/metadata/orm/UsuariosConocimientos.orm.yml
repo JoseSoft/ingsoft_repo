@@ -1,0 +1,40 @@
+UsuariosConocimientos:
+    type: entity
+    table: usuarios_conocimientos
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        institutoCertificado:
+            targetEntity: Institutos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                instituto_certificado:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoConocimiento:
+            targetEntity: Conocimientos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_conocimiento:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+        codigoUsuario:
+            targetEntity: Usuarios
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_usuario:
+                    referencedColumnName: cedula
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

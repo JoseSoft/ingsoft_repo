@@ -1,0 +1,31 @@
+Contratos:
+    type: entity
+    table: contratos
+    fields:
+        codigo:
+            id: true
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        urlPdf:
+            type: text
+            nullable: false
+            column: url_pdf
+        fechaFirmado:
+            type: date
+            nullable: false
+            column: fecha_firmado
+    manyToOne:
+        codigoProyecto:
+            targetEntity: Proyectos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_proyecto:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

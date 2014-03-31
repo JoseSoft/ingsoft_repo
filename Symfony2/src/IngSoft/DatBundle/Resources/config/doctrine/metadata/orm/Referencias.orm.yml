@@ -1,0 +1,26 @@
+Referencias:
+    type: entity
+    table: referencias
+    fields:
+        codigo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        enlaceReferencia:
+            type: text
+            nullable: false
+            column: enlace_referencia
+    manyToOne:
+        noticiasCodigo:
+            targetEntity: Noticias
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                noticias_codigo:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

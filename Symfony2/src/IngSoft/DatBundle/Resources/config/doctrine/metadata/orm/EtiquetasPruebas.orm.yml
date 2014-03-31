@@ -1,0 +1,22 @@
+EtiquetasPruebas:
+    type: entity
+    table: etiquetas_pruebas
+    fields:
+        codigoPrueba:
+            id: true
+            type: string
+            length: 30
+            fixed: false
+            nullable: false
+            column: codigo_prueba
+    oneToOne:
+        codigoEtiqueta:
+            targetEntity: Etiquetas
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                codigo_etiqueta:
+                    referencedColumnName: codigo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
